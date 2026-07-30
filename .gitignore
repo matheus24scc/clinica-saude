@@ -1,0 +1,33 @@
+# Dependencies
+backend/node_modules/
+frontend/node_modules/
+
+# Build outputs
+backend/dist/
+frontend/build/
+frontend/dist/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Tests
+coverage/
+
+# Misc
+*.tmp
+
+# GitHub Actions workflows (drops in initial setup; enable with workflow scope)
+.github/workflows/
