@@ -127,3 +127,11 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICE
 Seu Nome - [seuemail@exemplo.com](mailto:seuemail@exemplo.com)
 
 Link do Projeto: https://github.com/seusuario/clinica-saude
+## Status (checkup 2026-08-18)
+> Revisado na campanha de repo-checkup. Relatorio completo: `~/repo-checkup/reports/clinica-saude.md` (local do mantenedor, nao no repo).
+- **Build/Install**: Backend `npm install` RC=0 + `npm run build` (nest build) RC=0 (compila vazio, sem `src/`); Frontend `npm ci` RC=0 + `npm run build` RC=0 ("Compiled successfully").
+- **Smoke test**: Backend `npx jest --passWithNoTests` RC=0 (config valida, sem testes); Frontend `npm test -- --passWithNoTests` RC=0 (sem arquivos de teste). Nao ha app para rodar ponta-a-ponta (backend oco).
+- **Para rodar de ponta-a-ponta precisa de**: PostgreSQL 15 (via Docker Compose).
+- **Inconsistencias conhecidas (README vs codigo)**: README descreve backend NestJS completo (JWT, RBAC, testes Jest/Cypress) mas o backend e scaffold oco (sem `src/`, sem testes); credencial de DB hardcoded em `docker/database/init.sql` (`clinica_pass`).
+- **Seguranca**: Backend 13 vulns (3 low/4 moderate/6 high) e Frontend 28 vulns (9 low/5 moderate/14 high) — exigem upgrades breaking (NestJS 9->11, react-scripts major); nao corrigido (decisao humana). Secret scan sem api keys/tokens reais.
+- **Estado resumido**: build verde em frontend e backend (mas backend oco); smoke de config apenas; app nao roda ponta-a-ponta (precisa PostgreSQL + implementar backend).
